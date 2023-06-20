@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* GAME NAME */
+.gameName {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: 110px;
+    padding-top: 50px;
+}
+h1 {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+}
+/* Simulator Screen */
+.gameSimulator{
+    background-image: url('https://thumbs.gfycat.com/AdmiredDigitalHarrier-max-1mb.gif');
+}
+/* top screen */
+.healthScreen {
+    border: solid purple;
+    height: 100px;
+    width: 100%;
+    padding: 30px 10px 0 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.playerHealth {
+    border: solid, lime;
+    background-color: lime;
+    height: 50px;
+    width: 30%;
+}
+.alienHealth {
+    border: solid, lime;
+    background-color: lime;
+    height: 50px;
+    width: 30%;
+}
+.roundCount {
+    border: solid orange;
+    height: 65px;
+    width: 10%;
+}
+/*main game screen*/
+.gameScreen {
+    border: 2px solid red;
+    width: 100%;
+    height: 60vh;
+}
