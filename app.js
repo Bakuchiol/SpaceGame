@@ -36,10 +36,16 @@ class PlayerShip extends SpaceShip {
     // methods
     // attack alien     hull = health
     attackAlienShip(enemy){
-        if(Math.random() < this.accuracy){
-            enemy.hull -= this.firepower
+        alienHull = enemy.hull -= this.firepower
+        if (alienHull > 0){
+            console.log(`Attacked enemy ship with ${this.firepower} firepower.\n Enemy ship now has ${alienHull} hull remaining.`)
+        } else if(alienHull <= 0){
+            enemyAliens.shift()
         }
-    }
+    } 
+    // attackAlienHull(enemy){
+
+    // }
 }
 
 
@@ -54,6 +60,18 @@ class AlienShip extends SpaceShip {
         this.firepower = alienRandomizer(2, 4),
         // accuracy: .6 - .8
         this.accuracy = alienAccuracy(.8, .6)
+    }
+    //attack player ship
+    attackPlayerShip(player){
+        //player health - alien power
+        playerHull = player.hull - this.firepower
+        console.log(`${this.name} used ${this.firepower} firepower.`)
+        // if player health > 0 - (Still has health)show remaining health
+        if(playerHull > 0){
+            console.log(`You have ${playerHull} hull remaining.`)
+        } else {
+            console.log(`${playerShip} has been destroyed. You have failed to protect Earth.`)
+        }
     }
 }
 // console.log(alienAccuracy(.8, .6))
@@ -71,7 +89,33 @@ const alien6 = new AlienShip("The Arwing")
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
 /************************** FUNCTION */
+// attack aliens one by one
+// for(i = 0; i < enemyAliens.length; i++){
+//     let enemyTarget = enemyAliens[i]
+//     while(enemyTarget.hull > 0) {
+//         console.log(`${playerShip.name} will commence attack on ${enemyTarget.name}`)
+//         playerShip
+//     }
+// }
 
+//check functions here!!!
+function attackAlienShip(){
+    alienHull = 2
+    if (alienHull > 0){
+        console.log(`Attacked enemy ship with firepower.\nEnemy ship now hashull remaining.`)
+    }
+}
+attackAlienShip()
+function attackPlayerShip(){
+    playerHull = 0
+    console.log(` used  firepower.`)
+    if(playerHull > 0){
+        console.log(`You have  hull remaining.`)
+    } else {
+        console.log(` has been destroyed. You have failed to protect Earth.`)
+    }
+}
+attackPlayerShip()
 
 
 
