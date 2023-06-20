@@ -61,63 +61,6 @@ const alien6 = new AlienShip("The Arwing")
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
-// 6 alien ships
-//attacks one at a time
-// name, health, accuracy
-/* RANGED PROPERTIES DETERMINED RANDOMLY
-hull: 3 - 6
-firepower: 2 - 4
-accuracy: .6 - .8
-
-ex:
-if (Math.random() < alien[0].accuracy) {
-	console.log('You have been hit!');
-}
-
-ex:
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
- */
-// ONE OBJECT? OR DIFFERENT OBJECTS??
-const alienSpaceships = [
-    alien1 = {
-        name: "The Hocotate Ship",
-        hull: alienRandomizer(6, 3),
-        firepower: alienRandomizer(4, 2),
-        accuracy: alienAccuracy(.8, .6)
-    },
-    alien2 = {
-        name: "S.S. Dolphin",
-        hull: alienRandomizer(6, 3),
-        firepower: alienRandomizer(4, 2),
-        accuracy: alienAccuracy(.8, .6)
-    },
-    alien3 = {
-        name: "S.S. Drake",
-        hull: alienRandomizer(6, 3),
-        firepower: alienRandomizer(4, 2),
-        accuracy: alienAccuracy(.8, .6)
-    },
-    alien4 ={
-        name: "Research Pod",
-        hull: alienRandomizer(6, 3),
-        firepower: alienRandomizer(4, 2),
-        accuracy: alienAccuracy(.8, .6)
-    },
-    alien5 ={
-        name: "S.S. Dolphin II",
-        hull: alienRandomizer(6, 3),
-        firepower: alienRandomizer(4, 2),
-        accuracy: alienAccuracy(.8, .6)
-    },
-    alien6 ={
-        name: "The Arwing",
-        hull: alienRandomizer(6, 3),
-        firepower: alienRandomizer(4, 2),
-        accuracy: alienAccuracy(.8, .6)
-    }
-]
 
 /************************** VARIABLES */
 // top screen
