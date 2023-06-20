@@ -82,4 +82,25 @@ const alienSpaceships = [
 ]
 console.log(alienSpaceships)
 
+//random number for alien hull
+const alienHullPower = (min, max) => {
+    let randomNumber = Math.floor(Math.random() * (min - max) + min)
+    return randomNumber
+}
 
+//random number for alien firepower
+const alienFirePower = (min, max) => {
+    let randomNumber = Math.floor(Math.random() * (min - max) + min)
+    return randomNumber
+}
+//random number for alien accuracy
+const alienAccuracy = (min, max) => {
+    let randomNumber = Math.floor(Math.random() * (min - max) + min)
+    return randomNumber
+}
+
+/************************************************************************ FUNCTIONS */
+
+// ATTACK
+//  WHILE LOOP
+/* while we attack,  */
