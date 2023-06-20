@@ -45,26 +45,21 @@ class AlienShip extends SpaceShip {
         // firepower: 2 - 4
         this.firepower = alienRandomizer(2, 4),
         // accuracy: .6 - .8
-        this.accuracy = alienAccuracy(.6, .8)
+        this.accuracy = alienAccuracy(.8, .6)
     }
 }
 console.log(alienAccuracy(.8, .6))
 
-// Ship: USS Assembly
-//can only attack in order
-/* object properties:
-hull: 20
-firepower: 5
-accuracy: .7
-*/
-const spaceShip = [
-    {
-        name: "USS ASSEMBLY",
-        hull: 20,
-        firepower: .5,
-        accuracy: .7
-    }
-]
+//create alien ships
+const alien1 = new AlienShip("The Hocotate Ship")
+const alien2 = new AlienShip("S.S. Dolphin")
+const alien3 = new AlienShip("S.S. Drake")
+const alien4 = new AlienShip("Research Pod")
+const alien5 = new AlienShip("S.S. Dolphin II")
+const alien6 = new AlienShip("The Arwing")
+
+// alien array - easier iteration
+const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
 // 6 alien ships
 //attacks one at a time
