@@ -43,58 +43,47 @@ function getRandomArbitrary(min, max) {
  */
 // ONE OBJECT? OR DIFFERENT OBJECTS??
 const alienSpaceships = [
-    {
+    alien1 = {
         name: "The Hocotate Ship",
-        hull: Math.floor(Math.random() * (6-3) + 3),
-        firepower: Math.floor(Math.random() * (4-2) + 2),
-        accuracy: Math.floor(Math.random() * (.8-.6) + .6)
+        hull: alienRandomizer(6, 3),
+        firepower: alienRandomizer(4, 2),
+        accuracy: alienRandomizer(.8, .6)
     },
-    {
+    alien2 = {
         name: "S.S. Dolphin",
-        hull: Math.floor(Math.random() * (6-3) + 3),
-        firepower: Math.floor(Math.random() * (4-2) + 2),
-        accuracy: Math.floor(Math.random() * (.8-.6) + .6)
+        hull: alienRandomizer(6, 3),
+        firepower: alienRandomizer(4, 2),
+        accuracy: alienRandomizer(.8, .6)
     },
-    {
+    alien3 = {
         name: "S.S. Drake",
-        hull: Math.floor(Math.random() * (6-3) + 3),
-        firepower: Math.floor(Math.random() * (4-2) + 2),
-        accuracy: Math.floor(Math.random() * (.8-.6) + .6)
+        hull: alienRandomizer(6, 3),
+        firepower: alienRandomizer(4, 2),
+        accuracy: alienRandomizer(.8, .6)
     },
-    {
+    alien4 ={
         name: "Research Pod",
-        hull: Math.floor(Math.random() * (6-3) + 3),
-        firepower: Math.floor(Math.random() * (4-2) + 2),
-        accuracy: Math.floor(Math.random() * (.8-.6) + .6)
+        hull: alienRandomizer(6, 3),
+        firepower: alienRandomizer(4, 2),
+        accuracy: alienRandomizer(.8 ,.6)
     },
-    {
+    alien5 ={
         name: "S.S. Dolphin II",
-        hull: Math.floor(Math.random() * (6-3) + 3),
-        firepower: Math.floor(Math.random() * (4-2) + 2),
-        accuracy: Math.floor(Math.random() * (.8-.6) + .6)
+        hull: alienRandomizer(6, 3),
+        firepower: alienRandomizer(4, 2),
+        accuracy: alienRandomizer(.8, .6)
     },
-    {
+    alien6 ={
         name: "The Arwing",
-        hull: Math.floor(Math.random() * (6-3) + 3),
-        firepower: Math.floor(Math.random() * (4-2) + 2),
-        accuracy: Math.floor(Math.random() * (.8-.6) + .6)
+        hull: alienRandomizer(6, 3),
+        firepower: alienRandomizer(4, 2),
+        accuracy: alienRandomizer(.8, .6)
     }
 ]
 console.log(alienSpaceships)
 
-//random number for alien hull
-const alienHullPower = (min, max) => {
-    let randomNumber = Math.floor(Math.random() * (min - max) + min)
-    return randomNumber
-}
-
-//random number for alien firepower
-const alienFirePower = (min, max) => {
-    let randomNumber = Math.floor(Math.random() * (min - max) + min)
-    return randomNumber
-}
-//random number for alien accuracy
-const alienAccuracy = (min, max) => {
+/**********************random number for alien powweerrr */
+const alienRandomizer = (min, max) => {
     let randomNumber = Math.floor(Math.random() * (min - max) + min)
     return randomNumber
 }
