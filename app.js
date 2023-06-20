@@ -21,7 +21,6 @@ const spaceShip = [
         accuracy: .7
     }
 ]
-console.log(spaceShip)
 
 // 6 alien ships
 //attacks one at a time
@@ -89,26 +88,50 @@ const alienSpaceships = [
         accuracy: alienAccuracy(.8, .6)
     }
 ]
-console.log(alienSpaceships)
+// console.log(alienSpaceships)
 
+/************************** VARIABLES */
+// top screen
+const playerHealth = document.querySelector('.playerHealth');
+const roundCount = document.querySelector('.roundCount');
+const alienHealth = document.querySelector('.alienHealth');
+
+// main screen
+const startTitle = document.querySelector('.startTitle')
+const playerShip = document.querySelector('.playerShip');
+const alienShip = document.querySelector('.alienShip');
+
+
+// footer
+const start = document.querySelector('.start');
+const attack = document.querySelector('.attack');
+const retreat = document.querySelector('.retreat');
 
 /************************************************************************ FUNCTIONS */
+// start, health appears, alien ship appears
+// start.addEventListener('click', alienAppear);
+const shipsAppear = () => {
+    playerShip.classList.toggle('ussAssembly')
+    alienShip.classList.toggle('ussAlien')
+    startTitle.classList.toggle('pressStartGone')
+}
 
-/***** ATTACK */
+/************************************************** ATTACK */
 //always attack first then alien
 //click attack --> commence game
-// alienSpaceships.forEach() {
+// const attackAlienShip = () => {
+//     alienSpaceships.forEach(alien => functionName(alien))
+// }
+
+// const attackAlienShip = () => {
 //     while (spaceShip.hull > 0) {
 //         spaceShip
-//         if () {
+//         if (){}
 
-//         }
 //     }
-// }
-const attackAlienShip = () => {
-    alienSpaceships.forEach(alien => functionName(alien))
+// } 
 
-}
+console.log(spaceShip[1])
 
 
 //if own ship survive, attack again
@@ -125,3 +148,17 @@ const attackAlienShip = () => {
 
 // WIN = ALIEN SHIPS DESTROYED
 // LOSE = OWN SHIP DESTROYED
+
+const startGame = () => {
+    if(player1.isMyTurn === true){
+        attackPlayer(player2)
+    }else{
+        attackPlayer(player1)
+    }
+}
+
+// restart?
+// const restart = () => {
+//     //health = 0
+//     //function to go back to screen/start
+// }

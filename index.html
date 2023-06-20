@@ -24,13 +24,18 @@
             <div class="roundCount">Round Count</div>
             <div class="alienHealth">alien health goes here</div>
         </div>
-            <!-- main screen -->
+
+            <!-- main gaming screen -->
             <div class="gameScreen">
                 <div class="playerShip">
-                    <img src="" alt="" class="ussAssembly">
+                    <img src="images/gundamSuit.png" alt="" class="ussAssembly">
                 </div>
+                <!-- Press Start to play -->
+        <div class="pressStart">
+            <h1 class="startTitle">CLICK START TO PLAY</h1>
+        </div>
                 <div class="alienShip">
-                    <img src="" alt="" class="ussAlien">
+                    <img src="images/hocotateShip.webp" alt="" class="ussAlien">
                 </div>
             </div>
         </div>
@@ -40,7 +45,7 @@
         <!-- button - ATTACK -->
         <!-- button - RETREAT -->
         <div class="controls">
-            <button class="start">START</button>
+            <button class="start" onclick="shipsAppear()">START</button>
             <button class="attack">ATTACK</button>
             <button class="retreat">RETREAT</button>
         </div>

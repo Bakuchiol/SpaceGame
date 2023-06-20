@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* IMG sizing */
+img {
+    height: 300px;
+    width: 300px;
+}
 /* GAME NAME */
 .gameName {
     background-color: #000;
@@ -18,7 +23,7 @@ h1 {
 }
 /* Simulator Screen */
 .gameSimulator{
-    background-image: url('https://thumbs.gfycat.com/AdmiredDigitalHarrier-max-1mb.gif');
+    background-image: url('https://i.gifer.com/81mz.gif');
 }
 /* top screen */
 .healthScreen {
@@ -45,6 +50,7 @@ h1 {
     border: solid orange;
     height: 65px;
     width: 10%;
+    color: #fff;
 }
 /*main game screen*/
 .gameScreen {
@@ -78,6 +84,39 @@ button {
     border: 1px solid orangered;
     height: 60px;
     width: 150px;
+}
+
+/* ships not on screen - only press start to play*/
+.pressStart {
+    border: solid #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startTitle {
+    /* border: solid salmon; */
+    width: 50%;
+    color: white;
+    letter-spacing: .2em;
+    font-size: 50px;
+    margin-top: 100px;
+}
+.pressStartGone {
+    display: none;
+}
+.playerShip{
+    display: none;
+}
+.alienShip{
+    display: none;
+}
+.ussAssembly{
+    display: block;
+}
+.ussAlien {
+    display: block;
 }
 
 /* sttyling:
