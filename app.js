@@ -1,10 +1,18 @@
 // Space Battle
-
-
 // mechanics
 // hull - hitpoints [0 or less - ship is destroyed]
 // firepower - amount of damage done to hull
 // accuracy - chance between 0 -1 [math.random]
+
+// try factory
+class SpaceShip {
+    constructor(name, hull, firepower, accuracy){
+        this.name = name,
+        this.hull = hull,
+        this.firepower = firepower,
+        this.accuracy = accuracy
+    }
+}
 
 // Ship: USS Assembly
 //can only attack in order
@@ -89,6 +97,7 @@ const alienSpaceships = [
     }
 ]
 // console.log(alienSpaceships)
+const enemies = [alienSpaceships]
 
 /************************** VARIABLES */
 // top screen
@@ -119,27 +128,18 @@ const shipsAppear = () => {
 /************************************************** ATTACK */
 //always attack first then alien
 //click attack --> commence game
-// const attackAlienShip = () => {
-//     alienSpaceships.forEach(alien => functionName(alien))
-// }
-
-// const attackAlienShip = () => {
-//     while (spaceShip.hull > 0) {
-//         spaceShip
-//         if (){}
-
-//     }
-// } 
-
-console.log(spaceShip[1])
-
-
 //if own ship survive, attack again
-
-
 //if alien survive, alien ship attacks again
-
 //if alien ship destroyed, can ATTACK NEXT SHIP OR RETREAT
+
+const 
+
+
+
+
+
+
+
 
 /******* RETREAT */
 // retreat: only visible after defeating ship
