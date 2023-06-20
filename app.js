@@ -33,7 +33,15 @@ class PlayerShip extends SpaceShip {
         this.firepower = firepower,
         this.accuracy = accuracy
     }
+    // methods
+    // attack alien     hull = health
+    attackAlienShip(enemy){
+        if(Math.random() < this.accuracy){
+            enemy.hull -= this.firepower
+        }
+    }
 }
+
 
 // alien ships
 class AlienShip extends SpaceShip {
@@ -48,9 +56,10 @@ class AlienShip extends SpaceShip {
         this.accuracy = alienAccuracy(.8, .6)
     }
 }
-console.log(alienAccuracy(.8, .6))
+// console.log(alienAccuracy(.8, .6))
 
-//create alien ships
+//create player and alien ships
+const playerShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
 const alien1 = new AlienShip("The Hocotate Ship")
 const alien2 = new AlienShip("S.S. Dolphin")
 const alien3 = new AlienShip("S.S. Drake")
@@ -61,6 +70,10 @@ const alien6 = new AlienShip("The Arwing")
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
+/************************** FUNCTION */
+
+
+
 
 /************************** VARIABLES */
 // top screen
@@ -68,25 +81,26 @@ const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 // const roundCount = document.querySelector('.roundCount');
 // const alienHealth = document.querySelector('.alienHealth');
 
-// // main screen
+// main screen
 // const startTitle = document.querySelector('.startTitle')
 // const playerShip = document.querySelector('.playerShip');
 // const alienShip = document.querySelector('.alienShip');
 
-
-// // footer
+// footer
 // const start = document.querySelector('.start');
 // const attack = document.querySelector('.attack');
 // const retreat = document.querySelector('.retreat');
 
 // /************************************************************************ FUNCTIONS */
 // // start, health appears, alien ship appears
-// // start.addEventListener('click', alienAppear);
-// const shipsAppear = () => {
-//     playerShip.classList.toggle('ussAssembly')
-//     alienShip.classList.toggle('ussAlien')
-//     startTitle.classList.toggle('pressStartGone')
-// }
+
+const shipsAppear = () => {
+    playerShip.classList.toggle('ussAssembly')
+    alienShip.classList.toggle('ussAlien')
+    startTitle.classList.toggle('pressStartGone')
+    // start.textContent = "RE/START"
+    // make if statement if === "RE/START => restarts game?"
+}
 
 // /************************************************** ATTACK */
 // //always attack first then alien
@@ -94,6 +108,9 @@ const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 // //if own ship survive, attack again
 // //if alien survive, alien ship attacks again
 // //if alien ship destroyed, can ATTACK NEXT SHIP OR RETREAT
+
+
+
 
 
 
