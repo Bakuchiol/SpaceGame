@@ -136,6 +136,7 @@ const fight = () => {
             //write dialogue to appear on screen (text content on div?)
             console.log("Another approaches. Choose to give retreat the OK, or cancel and fight onward.");
 
+            //need something to wait and listen
             // stackoverflow - checking how to pause in middle of executing code - made buttons null
             if (window.confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
                 gameEnd = true;
@@ -179,16 +180,19 @@ const fight = () => {
     if (heroShip.hull > 0) {
         if (enemyAliens.length == 0) {
             console.log("WIIIIIIIIN");
+            //add to window - img properly loaded (game beginning sequence animation)
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
+            //add to window -- virus pop up animation
         }
     } else {
         console.log("LOSE");
+        //add to window -- virus pop up animation
     }
     alert("Reload the page to play again.")
 }
 
 
 // appear in document:
-/* health at load will show enemy hull, if destroyed enemy hull : 0 (even if console shows negative) */
+/* trying to load... -- @delay page loading animation-- prompt user to defeat console aliens */
 /* DELETE EXTRA BUTTONS -  */

@@ -11,44 +11,46 @@
         <h1 class="gameTitle">SPACE BATTLE</h1>
     </div>
 
-    <!-- MAIN -->
-        <!-- left - img of USS ASSEMBLY -->
-        <!-- right - img of ALIEN SHIPS -->
-        <div class="gameSimulator">
-            <!-- HEADER ---->
-        <!-- left - USS ASSEMBLY health and NAME-->
-        <!-- middle - Round Count -->
-        <!-- right - ALIEN health and NAME-->
-        <div class="healthScreen">
-            <div class="playerHealth">player health goes here</div>
-            <div class="roundCount">Round Count</div>
-            <div class="alienHealth">alien health goes here</div>
-        </div>
-
-            <!-- main gaming screen -->
-            <div class="gameScreen">
-                <div class="playerShip">
-                    <img src="images/gundamSuit.png" alt="" class="ussAssembly">
+    <!-- pokemon interface -->
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- main screen -->
+        <div class="mainScreen">
+            <div class="enemyScreen">
+                <div class="healthBar">
+                        <p class="name">name goes here</p>
+                        <p class="health">hull points here</p>
                 </div>
-                <!-- Press Start to play -->
-        <div class="pressStart">
-            <h1 class="startTitle">CLICK START TO PLAY</h1>
-        </div>
-                <div class="alienShip">
-                    <img src="images/hocotateShip.webp" alt="" class="ussAlien">
+                <div class="enemyShip">
+                    <img src="" alt="" class="alienShip">
+                </div>
+            </div>
+
+            <div class="playerScreen">
+                <div class="healthBar">
+                    <p class="name">name goes here</p>
+                    <p class="health">hull points here</p>
+                </div>
+                <div class="playerShip">
+                    <img src="" alt="" class="playerShip">
                 </div>
             </div>
         </div>
 
-    <!-- FOOTER? BOTTOM DIV -->
-        <!-- button - START -->
-        <!-- button - ATTACK -->
-        <!-- button - RETREAT -- delete and restyle-->
-        <div class="controls">
-            <button class="start" onclick="shipsAppear()">START</button>
-            <button class="attack" onclick="fight()">ATTACK</button>
-            <button class="retreat">RETREAT</button>
+        <!-- controller screen -->
+        <div class="control">
+            <!-- dialogue box for dialogue -->
+            <div class="dialogueBox">
+                <p class="dialogue">Lorem, ipsum dolor.</p>
+            </div>
+            
+            <!-- right control panel -->
+            <div class="controlPanel">
+                <button class="start" onclick="fight()"></button>
+                <button></button>
+            </div>
         </div>
+    </div>
 
     <script src="/app.js"></script>
 </body>
