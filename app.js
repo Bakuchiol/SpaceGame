@@ -44,7 +44,7 @@ class PlayerShip extends SpaceShip {
 
 // alien ships
 class AlienShip extends SpaceShip {
-    constructor(name, hull, firepower, accuracy){
+    constructor(name, hull, firepower, accuracy, picture){
         super(name, hull, firepower, accuracy)
         this.name = name,
         // hull: 3 - 6
@@ -53,6 +53,8 @@ class AlienShip extends SpaceShip {
         this.firepower = alienRandomizer(2, 4),
         // accuracy: .6 - .8
         this.accuracy = alienAccuracy(.8, .6)
+        //picture
+        this.picture = picture
     }
 }
 // console.log(alienAccuracy(.8, .6))
