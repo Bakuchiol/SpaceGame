@@ -3,124 +3,84 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* IMG sizing */
-img {
-    height: 300px;
-    width: 300px;
-}
-/* GAME NAME */
-.gameName {
-    background-color: #000;
-    color: #fff;
-    width: 100%;
-    height: 110px;
-    padding-top: 50px;
-}
-h1 {
-    width: 100%;
-    height: 50%;
-    text-align: center;
-}
-/* Simulator Screen */
-/* .gameSimulator{
-    background-image: url('https://thumbs.gfycat.com/SillyRedAuklet-max-1mb.gif');
-} */
-/* top screen */
-.healthScreen {
-    border: solid purple;
-    height: 100px;
-    width: 100%;
-    padding: 30px 10px 0 10px;
-    display: flex;
-    justify-content: space-evenly;
-}
-.playerHealth {
-    border: solid, lime;
-    background-color: lime;
-    height: 50px;
-    width: 30%;
-}
-.alienHealth {
-    border: solid, lime;
-    background-color: lime;
-    height: 50px;
-    width: 30%;
-}
-.roundCount {
-    border: solid orange;
-    height: 65px;
-    width: 10%;
-    color: #fff;
-}
-/*main game screen*/
-.gameScreen {
-    border: 2px solid red;
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    justify-content: space-between;
-}
-.playerShip{
-    border: solid royalblue;
-    width: 300px;
-    height: 200px;
-    margin-top: 60px;
-}
-.alienShip{
-    border: solid royalblue;
-    width: 300px;
-    height: 200px;
-    margin-top: 90px;
-}
-.controls {
-    background-color: #000;
-    width: 100%;
-    height: 50vh;
-    padding: 50px 80px 0 80px;
-    display: flex;
-    justify-content: space-between;
-}
-button {
-    border: 1px solid orangered;
-    height: 60px;
-    width: 150px;
-}
-
-/* ships not on screen - only press start to play*/
-.pressStart {
-    border: solid #fff;
-    height: 100%;
-    width: 100%;
+body{
+    margin: 60px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    background-color: #000;
 }
-.startTitle {
-    /* border: solid salmon; */
+/* IMG sizing */
+img {
+    height: 120px;
+    width: 150px;
+    margin-top: 5px;
+}
+/* game screen */
+.wrapper {
+    background-color: rgb(21, 70, 170);
+    width: 100%;
+    height: 60vh;
+    padding: 40px 30px;
+}
+.mainScreen {
+    border: solid black;
+    width: 100%;
+    height: 48vh;
+    padding: 15px;
+}
+.enemyScreen {
+    border: solid lime;
+    display: flex;
+    justify-content: space-between;
+}
+.playerScreen {
+    border: solid salmon;
+    display: flex;
+    justify-content: space-between;
+}
+.healthBar {
+    border: 2.5px solid rgb(113, 111, 111);
+    background-color: rgb(221, 237, 190);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 50%;
-    color: white;
-    letter-spacing: .2em;
-    font-size: 50px;
-    margin-top: 100px;
+    height: 60px;
+    margin: 15px 20px;
+    padding: 5px 9px;
 }
-.pressStartGone {
-    display: none;
+.name {
+    letter-spacing: .1em;
+    font-weight: 700;
 }
-.playerShip{
-    display: none;
+.health{
+    margin-top: 8px;
+    text-align: end;
 }
-.alienShip{
-    display: none;
+/* control screen */
+.control {
+    border: solid royalblue;
+    height: 80px;
+    display: flex;
 }
-.ussAssembly{
-    display: block;
+.dialogueBox {
+    border: solid yellow;
+    width: 70%;
+    padding: 10px;
+    color: #fff;
 }
-.ussAlien {
-    display: block;
+.controlPanel {
+    border: solid orange;
+    width: 30%;
 }
 
+
+
+
+
+
+
 /* sttyling:
-look like an old arcade game
+look like an pokemon sd
 add padding around
 change styling
 
