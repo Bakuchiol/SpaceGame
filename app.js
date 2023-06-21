@@ -111,16 +111,23 @@ const fight = () => {
 
     while (gameEnd != true) {
     // PLAYER TURN
-    heroShip.attackEnemy(enemyAliens[0]);
-    //write dialogue to appear on screen (text content on div?)
-    console.log(`You attack ${enemyAliens[0].name}, leaving them with ${enemyAliens[0].hull}.`);
+    let turbulence = Math.random();
+    let target = enemyAliens[0];
+
+    if (turbulence < heroShip.accuracy) {
+        heroShip.attackEnemy(target);
+        //write dialogue to appear on screen (text content on div?)
+        console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
+    } else {
+        console.log("You missed.")
+    }
     // before everything else, you check if alien is dead
     // if alien dead, check if there is an alien next in queue
     // if there's a replacement, bring them to the front and kick out the corpse
     // if there isn't, automatic WIN
-    if (enemyAliens[0].hull <= 0) {
+    if (target.hull <= 0) {
         
-        enemyAliens[0].hull = 0;
+        target.hull = 0;
         //write dialogue to appear on screen (text content on div?)
         console.log(`Enemy is destroyed. Good Job!`)
         enemyAliens.shift();
@@ -137,6 +144,7 @@ const fight = () => {
                 console.log("Sailing back to Earth...");
             } else {
                 //write dialogue to appear on screen (text content on div?)
+                target = enemyAliens[0];
                 console.log("Brace for impact; a new enemy arrives!")
             }
 
@@ -150,16 +158,20 @@ const fight = () => {
 
     // ALIEN TURN
     if (gameEnd != true) {
-        // if the game is not about to end, alien turn; they attack
-        enemyAliens[0].attackEnemy(heroShip);
-        //write dialogue to appear on screen (text content on div?)
-        console.log(`The enemy ship attacks, leaving your hull at ${heroShip.hull}.`)
-        // before everything else, they check if you are dead
-        if (heroShip.hull <= 0) {
-            heroShip.hull = 0;
-            gameEnd = true;
+        if (target.accuracy > turbulence) {
+            // if the game is not about to end, alien turn; they attack
+            target.attackEnemy(heroShip);
             //write dialogue to appear on screen (text content on div?)
-            console.log("It seems you are about to explode.")
+            console.log(`The enemy ship attacks, leaving your hull at ${heroShip.hull}.`)
+            // before everything else, they check if you are dead
+            if (heroShip.hull <= 0) {
+                heroShip.hull = 0;
+                gameEnd = true;
+                //write dialogue to appear on screen (text content on div?)
+                console.log("It seems you are about to explode.")
+            }
+        } else {
+            console.log(`${target.name} missed. Now's your chance!`)
         }
     }
 
