@@ -69,21 +69,6 @@ const alien6 = new AlienShip("The Arwing")
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
-/************************** FUNCTION */
-// attack aliens one by one
-// for(i = 0; i < enemyAliens.length; i++){
-//     let enemyTarget = enemyAliens[i]
-//     while(enemyTarget.hull > 0) {
-//         console.log(`${playerShip.name} will commence attack on ${enemyTarget.name}`)
-//         playerShip
-//     }
-// }
-
-
-
-
-
-
 /************************** VARIABLES */
 // top screen
 // const playerHealth = document.querySelector('.playerHealth');
@@ -121,41 +106,42 @@ const shipsAppear = () => {
 //main game loop
 // want the game to run while hero ship not destroyed
 const fight = () => {
-let gameEnd = false;
-// ! means NOT
-while (gameEnd != true) {
-    // you attack
+    let gameEnd = false;
+    // ! means NOT
+
+    while (gameEnd != true) {
+    // PLAYER TURN
     heroShip.attackEnemy(enemyAliens[0]);
+    //write dialogue to appear on screen (text content on div?)
     console.log(`You attack ${enemyAliens[0].name}, leaving them with ${enemyAliens[0].hull}.`);
     // before everything else, you check if alien is dead
     // if alien dead, check if there is an alien next in queue
     // if there's a replacement, bring them to the front and kick out the corpse
     // if there isn't, automatic WIN
     if (enemyAliens[0].hull <= 0) {
+        
         enemyAliens[0].hull = 0;
         console.log(`Enemy is destroyed. Good Job!`)
-            
-            // give the option to retreat
+        enemyAliens.shift();
+        
+        if (enemyAliens.length != 0) {
             console.log("Another approaches. Choose to give retreat the OK, or cancel and fight onward.");
-            
-            // if they accept, end the game
-            // if they don't, do the replacement
+
             if (window.confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
                 gameEnd = true;
                 console.log("Sailing back to Earth...");
             } else {
-                enemyAliens.shift();
-                if (enemyAliens.length != 0) { // NOTE TO ALL: .includes IS NOT PARSING CORRECTLY
-                    console.log("Brace for impact; a new enemy arrives!")
-                } else {
-                    gameEnd = true;
-                    console.log("The silence... is deafening.");
-                }
-                
+                console.log("Brace for impact; a new enemy arrives!")
             }
+
+        } else {
+            console.log("The silence... is deafening.");
+            gameEnd = true;
+        }
         
     }
 
+    // ALIEN TURN
     if (gameEnd != true) {
         // if the game is not about to end, alien turn; they attack
         enemyAliens[0].attackEnemy(heroShip);
@@ -167,37 +153,17 @@ while (gameEnd != true) {
             console.log("It seems you are about to explode.")
         }
     }
-}
 
-if (heroShip.hull > 0) {
-    console.log("WIIIIIIIIN");
+    }
+
+    if (heroShip.hull > 0) {
+        console.log("WIIIIIIIIN");
+    } else {
+        console.log("LOSE");
+    }
     alert("Reload the page to play again.")
-} else {
-    console.log("LOSE");
-    alert("Reload the page to play again.")
-}
 }
 
 
-
-// /******* RETREAT */
-// // retreat: only visible after defeating ship
-// // otherwise not visible at beginning ONLY START AND ATTACK
-// // RETREAT === GAME OVER
-
-// // WIN = ALIEN SHIPS DESTROYED
-// // LOSE = OWN SHIP DESTROYED
-
-// const startGame = () => {
-//     if(player1.isMyTurn === true){
-//         attackPlayer(player2)
-//     }else{
-//         attackPlayer(player1)
-//     }
-// }
-
-// // restart?
-// // const restart = () => {
-// //     //health = 0
-// //     //function to go back to screen/start
-// // }
+// appear in document:
+/* health at load will show enemy hull, if destroyed enemy hull : 0 (even if console shows negative) */
