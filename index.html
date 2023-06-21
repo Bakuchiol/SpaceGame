@@ -12,22 +12,24 @@
     <div class="wrapper">
         <!-- main screen -->
         <div class="mainScreen">
-            <div class="enemyScreen">
-                <div class="healthBar">
-                        <p class="name">The Hocotate</p>
+            <div class="background">
+                <div class="enemyScreen">
+                    <div class="healthBar">
+                            <p class="name">The Hocotate</p>
+                            <p class="health">HULL: <span></span></p>
+                    </div>
+                    <div class="enemyShip">
+                        <img src="images/hocotateShip.webp" alt="" class="alienShip">
+                    </div>
+                </div>
+                <div class="playerScreen">
+                    <div class="playerShip">
+                        <img src="images/gundamSuit.png" alt="" class="playerShip">
+                    </div>
+                    <div class="healthBar">
+                        <p class="name">LCAM-01XA Archangel</p>
                         <p class="health">HULL: <span></span></p>
-                </div>
-                <div class="enemyShip">
-                    <img src="images/hocotateShip.webp" alt="" class="alienShip">
-                </div>
-            </div>
-            <div class="playerScreen">
-                <div class="playerShip">
-                    <img src="images/gundamSuit.png" alt="" class="playerShip">
-                </div>
-                <div class="healthBar">
-                    <p class="name">LCAM-01XA Archangel</p>
-                    <p class="health">HULL: <span></span></p>
+                    </div>
                 </div>
             </div>
 
@@ -40,13 +42,10 @@
             
             <!-- right control panel -->
             <div class="controlPanel">
-                <button class="start" onclick="fight()"></button>
-                <button></button>
+                    <button class="start" onclick="fight()">ATTACK</button>
             </div>
         </div>
-
-
-
+        <p id="spaceTitle">SPACE BATTLE</p>
         </div>
 
     </div>
