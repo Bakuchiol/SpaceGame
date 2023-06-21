@@ -22,7 +22,7 @@ class SpaceShip {
         this.firepower = firepower,
         this.accuracy = accuracy
     }
-    attackAlienHull(enemy){
+    attackEnemy (enemy){
         if (Math.random() < this.accuracy){
             enemy.hull -= this.firepower
         }
@@ -39,16 +39,6 @@ class PlayerShip extends SpaceShip {
         this.firepower = firepower,
         this.accuracy = accuracy
     }
-    // methods
-    // attack alien     hull = health
-    attackAlienShip(enemy){
-        alienHull = enemy.hull -= this.firepower
-        if (alienHull > 0){
-            console.log(`Attacked enemy ship with ${this.firepower} firepower.\n Enemy ship now has ${alienHull} hull remaining.`)
-        } else if(alienHull <= 0){
-            enemyAliens.shift()
-        }
-    } 
 }
 
 
@@ -63,18 +53,6 @@ class AlienShip extends SpaceShip {
         this.firepower = alienRandomizer(2, 4),
         // accuracy: .6 - .8
         this.accuracy = alienAccuracy(.8, .6)
-    }
-    //attack player ship
-    attackPlayerShip(player){
-        //player health - alien power
-        playerHull = player.hull - this.firepower
-        console.log(`${this.name} used ${this.firepower} firepower.`)
-        // if player health > 0 - (Still has health)show remaining health
-        if(playerHull > 0){
-            console.log(`You have ${playerHull} hull remaining.`)
-        } else {
-            console.log(`${playerShip} has been destroyed. You have failed to protect Earth.`)
-        }
     }
 }
 // console.log(alienAccuracy(.8, .6))
@@ -146,14 +124,32 @@ let heroDead = false;
 // ! means NOT
 while (!heroDead) {
     // you attack
+    heroShip.attackEnemy(enemyAliens[0]);
     // before everything else, you check if alien is dead
     // if alien dead, check if there is an alien next in queue
     // if there's a replacement, bring them to the front and kick out the corpse
     // if there isn't, automatic WIN
+    if (enemyAliens[0].hull <= 0) {
+        enemyAliens[0].hull = 0;
+        console.log('she dead')
+        let a = typeof enemyAliens[1];
+        if (a != "undefined") {
+            // give the option to retreat
+            // if they accept, end the game
+            // if they don't, do the replacement
+        } else {
+            // all aliens are dead, you WIN
+        }
+    }
+
+    
     // alien turn; they attack
+    enemyAliens[0].attackEnemy(heroShip);
     // before everything else, they check if you are dead
-    // if you dead, set dead to true
-    // if not dead, the cycle continues
+    if (heroShip.hull <= 0) {
+        heroShip.hull = 0;
+        heroDead = true;
+    }
 }
 
 
