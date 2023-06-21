@@ -121,20 +121,27 @@ const fight = () => {
     if (enemyAliens[0].hull <= 0) {
         
         enemyAliens[0].hull = 0;
+        //write dialogue to appear on screen (text content on div?)
         console.log(`Enemy is destroyed. Good Job!`)
         enemyAliens.shift();
+        /** APPEND NEXT ALIEN SHIP IMG HERE **/
         
         if (enemyAliens.length != 0) {
+            //write dialogue to appear on screen (text content on div?)
             console.log("Another approaches. Choose to give retreat the OK, or cancel and fight onward.");
 
+            // stackoverflow - checking how to pause in middle of executing code - made buttons null
             if (window.confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
                 gameEnd = true;
+                //write dialogue to appear on screen (text content on div?)
                 console.log("Sailing back to Earth...");
             } else {
+                //write dialogue to appear on screen (text content on div?)
                 console.log("Brace for impact; a new enemy arrives!")
             }
 
         } else {
+            //write dialogue to appear on screen (text content on div?)
             console.log("The silence... is deafening.");
             gameEnd = true;
         }
@@ -145,11 +152,13 @@ const fight = () => {
     if (gameEnd != true) {
         // if the game is not about to end, alien turn; they attack
         enemyAliens[0].attackEnemy(heroShip);
+        //write dialogue to appear on screen (text content on div?)
         console.log(`The enemy ship attacks, leaving your hull at ${heroShip.hull}.`)
         // before everything else, they check if you are dead
         if (heroShip.hull <= 0) {
             heroShip.hull = 0;
             gameEnd = true;
+            //write dialogue to appear on screen (text content on div?)
             console.log("It seems you are about to explode.")
         }
     }
@@ -167,3 +176,4 @@ const fight = () => {
 
 // appear in document:
 /* health at load will show enemy hull, if destroyed enemy hull : 0 (even if console shows negative) */
+/* DELETE EXTRA BUTTONS -  */
