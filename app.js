@@ -6,12 +6,12 @@
 
 /**********************random number for alien powweerrr */
 const alienRandomizer = (min, max) => {
-    let randomNumber = Math.floor(Math.random() * (min - max) + min)
+    let randomNumber = Math.floor(Math.random() * (min - max)) + min
     return randomNumber
 }
 /**********************random number for alien accuracy */
 const alienAccuracy = (min, max) => {
-    return (Math.random() * ((min - max) + min)).toFixed(2)
+    return (Math.random() * ((min - max))).toFixed(2) + min
 }
 
 // try factory
@@ -92,8 +92,6 @@ const shipsAppear = () => {
     playerShip.classList.toggle('ussAssembly')
     alienShip.classList.toggle('ussAlien')
     startTitle.classList.toggle('pressStartGone')
-    // start.textContent = "RE/START"
-    // make if statement if === "RE/START => restarts game?"
 }
 
 // /************************************************** ATTACK */
@@ -106,14 +104,15 @@ const shipsAppear = () => {
 //main game loop
 // want the game to run while hero ship not destroyed
 const fight = () => {
+    // game mechanic [event flag] : tracks state of game (if started or not etc....)
     let gameEnd = false;
-    // ! means NOT
 
     while (gameEnd != true) {
     // PLAYER TURN
-    let turbulence = Math.random();
+    let turbulence = Math.random(); // checks accuracy
     let target = enemyAliens[0];
 
+    //check accuracy
     if (turbulence < heroShip.accuracy) {
         heroShip.attackEnemy(target);
         //write dialogue to appear on screen (text content on div?)
@@ -126,7 +125,7 @@ const fight = () => {
     // if there's a replacement, bring them to the front and kick out the corpse
     // if there isn't, automatic WIN
     if (target.hull <= 0) {
-        
+        //since it goes to negative, reassigns alien haul to 0
         target.hull = 0;
         //write dialogue to appear on screen (text content on div?)
         console.log(`Enemy is destroyed. Good Job!`)
@@ -144,7 +143,7 @@ const fight = () => {
                 console.log("Sailing back to Earth...");
             } else {
                 //write dialogue to appear on screen (text content on div?)
-                target = enemyAliens[0];
+                target = enemyAliens[0]; // reassign (just in case) to next alien
                 console.log("Brace for impact; a new enemy arrives!")
             }
 
@@ -162,7 +161,7 @@ const fight = () => {
             // if the game is not about to end, alien turn; they attack
             target.attackEnemy(heroShip);
             //write dialogue to appear on screen (text content on div?)
-            console.log(`The enemy ship attacks, leaving your hull at ${heroShip.hull}.`)
+            console.log(`${target.name} attacks, leaving your hull at ${heroShip.hull}.`)
             // before everything else, they check if you are dead
             if (heroShip.hull <= 0) {
                 heroShip.hull = 0;
@@ -178,7 +177,11 @@ const fight = () => {
     }
 
     if (heroShip.hull > 0) {
-        console.log("WIIIIIIIIN");
+        if (enemyAliens.length == 0) {
+            console.log("WIIIIIIIIN");
+        } else {
+            console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
+        }
     } else {
         console.log("LOSE");
     }
