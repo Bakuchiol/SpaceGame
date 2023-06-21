@@ -96,9 +96,9 @@ const playerShip = document.querySelector('.playerShip');
 const alienShip = document.querySelector('.alienShip');
 
 // footer
-// const start = document.querySelector('.start');
-// const attack = document.querySelector('.attack');
-// const retreat = document.querySelector('.retreat');
+const start = document.querySelector('.start');
+const attack = document.querySelector('.attack');
+const retreat = document.querySelector('.retreat');
 
 // /************************************************************************ FUNCTIONS */
 // // start, health appears, alien ship appears
@@ -120,43 +120,57 @@ const shipsAppear = () => {
 
 //main game loop
 // want the game to run while hero ship not destroyed
-let heroDead = false;
+let gameEnd = false;
 // ! means NOT
-while (!heroDead) {
+while (gameEnd != true) {
     // you attack
     heroShip.attackEnemy(enemyAliens[0]);
+    console.log(`You attack ${enemyAliens[0].name}, leaving them with ${enemyAliens[0].hull}.`);
     // before everything else, you check if alien is dead
     // if alien dead, check if there is an alien next in queue
     // if there's a replacement, bring them to the front and kick out the corpse
     // if there isn't, automatic WIN
     if (enemyAliens[0].hull <= 0) {
         enemyAliens[0].hull = 0;
-        console.log('she dead')
-        let a = typeof enemyAliens[1];
-        if (a != "undefined") {
+        console.log(`Enemy is destroyed. Good Job!`)
+        if (enemyAliens.includes(AlienShip, 1) === true) {
             // give the option to retreat
+            console.log("Another approaches. Do you want to continue?");
+            
             // if they accept, end the game
             // if they don't, do the replacement
+            if (retreat.onclick === true) { // check if retreat button pressed
+                gameEnd = true;
+                console.log("Sailing back to Earth...");
+            } else if (attack.onclick === true) { // check if attack button pressed
+                enemyAliens.shift();
+                console.log("Brace for impact; a new enemy arrives!")
+            }
         } else {
             // all aliens are dead, you WIN
+            gameEnd = true;
+            console.log("It seems there are no more enemies...")
         }
     }
 
-    
-    // alien turn; they attack
-    enemyAliens[0].attackEnemy(heroShip);
-    // before everything else, they check if you are dead
-    if (heroShip.hull <= 0) {
-        heroShip.hull = 0;
-        heroDead = true;
+    if (gameEnd != true) {
+        // if the game is not about to end, alien turn; they attack
+        enemyAliens[0].attackEnemy(heroShip);
+        console.log(`The enemy ship attacks, leaving your hull at ${heroShip.hull}.`)
+        // before everything else, they check if you are dead
+        if (heroShip.hull <= 0) {
+            heroShip.hull = 0;
+            gameEnd = true;
+            console.log("It seems you are about to explode.")
+        }
     }
 }
 
-
-
-
-
-
+if (heroShip.hull > 0) {
+    console.log("WIIIIIIIIN");
+} else {
+    console.log("LOSE");
+}
 
 
 
