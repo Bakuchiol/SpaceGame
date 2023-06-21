@@ -22,6 +22,12 @@ class SpaceShip {
         this.firepower = firepower,
         this.accuracy = accuracy
     }
+    attackAlienHull(enemy){
+        if (Math.random() < this.accuracy){
+            enemy.hull -= this.firepower
+        }
+    }
+    
 }
 
 // player ship
@@ -43,9 +49,6 @@ class PlayerShip extends SpaceShip {
             enemyAliens.shift()
         }
     } 
-    // attackAlienHull(enemy){
-
-    // }
 }
 
 
@@ -77,7 +80,7 @@ class AlienShip extends SpaceShip {
 // console.log(alienAccuracy(.8, .6))
 
 //create player and alien ships
-const playerShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
+const heroShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
 const alien1 = new AlienShip("The Hocotate Ship")
 const alien2 = new AlienShip("S.S. Dolphin")
 const alien3 = new AlienShip("S.S. Drake")
@@ -98,24 +101,8 @@ const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 //     }
 // }
 
-//check functions here!!!
-function attackAlienShip(){
-    alienHull = 2
-    if (alienHull > 0){
-        console.log(`Attacked enemy ship with firepower.\nEnemy ship now hashull remaining.`)
-    }
-}
-attackAlienShip()
-function attackPlayerShip(){
-    playerHull = 0
-    console.log(` used  firepower.`)
-    if(playerHull > 0){
-        console.log(`You have  hull remaining.`)
-    } else {
-        console.log(` has been destroyed. You have failed to protect Earth.`)
-    }
-}
-attackPlayerShip()
+
+
 
 
 
@@ -126,9 +113,9 @@ attackPlayerShip()
 // const alienHealth = document.querySelector('.alienHealth');
 
 // main screen
-// const startTitle = document.querySelector('.startTitle')
-// const playerShip = document.querySelector('.playerShip');
-// const alienShip = document.querySelector('.alienShip');
+const startTitle = document.querySelector('.startTitle');
+const playerShip = document.querySelector('.playerShip');
+const alienShip = document.querySelector('.alienShip');
 
 // footer
 // const start = document.querySelector('.start');
@@ -153,7 +140,21 @@ const shipsAppear = () => {
 // //if alien survive, alien ship attacks again
 // //if alien ship destroyed, can ATTACK NEXT SHIP OR RETREAT
 
-
+//main game loop
+// want the game to run while hero ship not destroyed
+let heroDead = false;
+// ! means NOT
+while (!heroDead) {
+    // you attack
+    // before everything else, you check if alien is dead
+    // if alien dead, check if there is an alien next in queue
+    // if there's a replacement, bring them to the front and kick out the corpse
+    // if there isn't, automatic WIN
+    // alien turn; they attack
+    // before everything else, they check if you are dead
+    // if you dead, set dead to true
+    // if not dead, the cycle continues
+}
 
 
 
