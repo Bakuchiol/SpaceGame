@@ -120,6 +120,7 @@ const shipsAppear = () => {
 
 //main game loop
 // want the game to run while hero ship not destroyed
+const fight = () => {
 let gameEnd = false;
 // ! means NOT
 while (gameEnd != true) {
@@ -133,24 +134,26 @@ while (gameEnd != true) {
     if (enemyAliens[0].hull <= 0) {
         enemyAliens[0].hull = 0;
         console.log(`Enemy is destroyed. Good Job!`)
-        if (enemyAliens.includes(AlienShip, 1) === true) {
+            
             // give the option to retreat
-            console.log("Another approaches. Do you want to continue?");
+            console.log("Another approaches. Choose to give retreat the OK, or cancel and fight onward.");
             
             // if they accept, end the game
             // if they don't, do the replacement
-            if (retreat.onclick === true) { // check if retreat button pressed
+            if (window.confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
                 gameEnd = true;
                 console.log("Sailing back to Earth...");
-            } else if (attack.onclick === true) { // check if attack button pressed
+            } else {
                 enemyAliens.shift();
-                console.log("Brace for impact; a new enemy arrives!")
+                if (enemyAliens.length != 0) { // NOTE TO ALL: .includes IS NOT PARSING CORRECTLY
+                    console.log("Brace for impact; a new enemy arrives!")
+                } else {
+                    gameEnd = true;
+                    console.log("The silence... is deafening.");
+                }
+                
             }
-        } else {
-            // all aliens are dead, you WIN
-            gameEnd = true;
-            console.log("It seems there are no more enemies...")
-        }
+        
     }
 
     if (gameEnd != true) {
@@ -168,10 +171,12 @@ while (gameEnd != true) {
 
 if (heroShip.hull > 0) {
     console.log("WIIIIIIIIN");
+    alert("Reload the page to play again.")
 } else {
     console.log("LOSE");
+    alert("Reload the page to play again.")
 }
-
+}
 
 
 
