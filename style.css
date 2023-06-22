@@ -51,13 +51,26 @@ img {
     background-color: rgb(221, 237, 190);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    width: 50%;
+    width: 60%;
     height: 60px;
     margin: 15px 20px;
     padding: 5px 9px;
 }
 .name, .alienName {
     letter-spacing: .1em;
+    font-weight: 700;
+}
+.enemy{
+    display: flex;
+    justify-content: space-between;
+}
+.alienNameSub {
+    font-size: 10px;
+}
+.alienHealth {
+    font-size: 12px;
+}
+.alienHealth span {
     font-weight: 700;
 }
 .health, .alienHealth{

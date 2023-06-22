@@ -108,16 +108,6 @@ const textInTime = {
     duration: 2000,
     iteration: 1,
 }
-const textInTime2 = {
-    duration: 2000,
-    delay: 3000,
-    iteration: 1
-}
-const textInTime3 = {
-    duration: 2000,
-    delay: 5000,
-    iteration: 1
-}
 // animation
 
 
@@ -159,6 +149,9 @@ const fight = () => {
         startText2.textContent = "In a galaxy, far far away..."
         heroShip.attackEnemy(target);
         //write dialogue to appear on screen (text content on div?)
+        //test
+        startText.innerHTML = `You attack ${target.name}, leaving them with ${target.hull}!`
+        //test
         console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
 
     } else {
@@ -182,7 +175,7 @@ const fight = () => {
 
             //need something to wait and listen
             // stackoverflow - checking how to pause in middle of executing code - made buttons null
-            if (window.confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
+            if (confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
                 gameEnd = true;
                 //write dialogue to appear on screen (text content on div?)
                 console.log("Sailing back to Earth...");
