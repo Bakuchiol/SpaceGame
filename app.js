@@ -85,21 +85,47 @@ const startScreen = document.querySelector('.startScreen');
 const startButton = document.querySelector('#startGame');
 
 const attackButton = document.querySelector('.start')
+const startText = document.querySelector('.dialogue')
+const secondText = document.querySelector('.dialogue2');
 // /************************************************************************ FUNCTIONS */
 // on screen load - text animation
 // stackoverflow
 document.addEventListener("DOMContentLoaded", ()=> {
-    const startText = document.querySelector('.dialogue')
-    startText.textContent = "StarShipssss loremsdjfjlsjflsflsdkjf"
+    const thirdText = document.querySelector('.dialogue3')
+    startText.textContent = "Press Start to Play"
+    // secondText.style.display = "none"
+    thirdText.style.display = "none"
+    //loop
+    secondText.textContent = "Aliens are incoming."
+    thirdText.textContent = "Will you be able to defeat them?"
 })
 
-// // start, health appears, alien ship appears
+// animation
+const textIn = [
+    {width: 0},
+    {width: 100}
+]
+const textInTime = {
+    duration: 2000,
+    iteration: 3
+}
 
+// animation
+
+
+// // start, health appears, alien ship appears
 const start = () => {
     startScreen.style.display = "none"
     startButton.style.display = "none"
     background.style.display = "block"
     attackButton.style.display = "block"
+    startText.animate(textIn, textInTime)
+    startText.textContent = "The galaxy is under attack by aliens!"
+    secondText.style.display = "none"
+    if(secondText.style.display === none){
+        secondText.style.display = "block"
+        secondText.textContent = "Defend your empire!"
+    }
 }
 
 // /************************************************** ATTACK */
@@ -122,9 +148,12 @@ const fight = () => {
 
     //check accuracy
     if (turbulence < heroShip.accuracy) {
+        const startText2 = document.querySelector('.dialogue2')
+        startText2.textContent = "In a galaxy, far far away..."
         heroShip.attackEnemy(target);
         //write dialogue to appear on screen (text content on div?)
         console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
+
     } else {
         console.log("You missed.")
     }

@@ -123,18 +123,27 @@ img {
     from {
         width: 0;
     }
-}
-@keyframes blink {
-    50% {
-        border-color: transparent;
+    to {
+        width: 100;
     }
 }
 .dialogue {
-    width: 22ch;
-    animation: story 2s steps(22), blink .5s step-end infinite alternate;
-    white-space: nowrap;
+    width: 100%;
+    animation: story 2s steps(30);
+    white-space:nowrap;
     overflow: hidden;
-    border-right: 3px solid;
+}
+.dialogue2 {
+    width: 100%;
+    animation: story 2s steps(100);
+    white-space:nowrap;
+    overflow: hidden;
+}
+.dialogue3 {
+    width: 100%;
+    animation: story 2s steps(100);
+    white-space:nowrap;
+    overflow: hidden;
 }
 
 
