@@ -85,17 +85,16 @@ const startScreen = document.querySelector('.startScreen');
 const startButton = document.querySelector('#startGame');
 
 const attackButton = document.querySelector('.start')
+const textBox = document.querySelector('.dialogueBox')
 const startText = document.querySelector('.dialogue')
 const secondText = document.querySelector('.dialogue2');
+const thirdText = document.querySelector('.dialogue3')
 // /************************************************************************ FUNCTIONS */
+
 // on screen load - text animation
 // stackoverflow
 document.addEventListener("DOMContentLoaded", ()=> {
-    const thirdText = document.querySelector('.dialogue3')
     startText.textContent = "Press Start to Play"
-    // secondText.style.display = "none"
-    thirdText.style.display = "none"
-    //loop
     secondText.textContent = "Aliens are incoming."
     thirdText.textContent = "Will you be able to defeat them?"
 })
@@ -107,9 +106,18 @@ const textIn = [
 ]
 const textInTime = {
     duration: 2000,
-    iteration: 3
+    iteration: 1,
 }
-
+const textInTime2 = {
+    duration: 2000,
+    delay: 3000,
+    iteration: 1
+}
+const textInTime3 = {
+    duration: 2000,
+    delay: 5000,
+    iteration: 1
+}
 // animation
 
 
@@ -121,11 +129,10 @@ const start = () => {
     attackButton.style.display = "block"
     startText.animate(textIn, textInTime)
     startText.textContent = "The galaxy is under attack by aliens!"
-    secondText.style.display = "none"
-    if(secondText.style.display === none){
-        secondText.style.display = "block"
-        secondText.textContent = "Defend your empire!"
-    }
+    secondText.animate(textIn, textInTime)
+    secondText.textContent = "Defend your Empire!"
+    thirdText.animate(textIn, textInTime)
+    thirdText.textContent = "Console Wars Begins!"
 }
 
 // /************************************************** ATTACK */

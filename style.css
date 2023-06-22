@@ -119,29 +119,47 @@ img {
 }
 /* on page load start text animation */
 /* code geeks for geeks css steps() article*/
-@keyframes story {
+@keyframes textLine {
     from {
         width: 0;
     }
     to {
-        width: 100;
+        width: 100%;
+    }
+}
+@keyframes textLine2 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes textLine3 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
     }
 }
 .dialogue {
     width: 100%;
-    animation: story 2s steps(30);
+    animation: textLine 2s steps(30) 1s 1 normal both;
     white-space:nowrap;
     overflow: hidden;
 }
 .dialogue2 {
     width: 100%;
-    animation: story 2s steps(100);
+    animation: textLine2 2s steps(30) 1s 1 normal both;
+    animation-delay: 3s;
     white-space:nowrap;
     overflow: hidden;
 }
 .dialogue3 {
     width: 100%;
-    animation: story 2s steps(100);
+    animation: textLine3 2s steps(30) 1s 1 normal both;
+    animation-delay: 5s;
     white-space:nowrap;
     overflow: hidden;
 }
