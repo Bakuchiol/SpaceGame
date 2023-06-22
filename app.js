@@ -86,6 +86,9 @@ const startButton = document.querySelector('#startGame');
 
 const attackButton = document.querySelector('.start')
 // /************************************************************************ FUNCTIONS */
+// on screen load - text animation
+// window.onload
+
 // // start, health appears, alien ship appears
 
 const start = () => {
@@ -190,7 +193,9 @@ const fight = () => {
         console.log("LOSE");
         //add to window -- virus pop up animation
     }
-    alert("Reload the page to play again.")
+    // alert("Reload the page to play again.")
+    //automatically reloads page
+    window.location.reload()
 }
 
 
