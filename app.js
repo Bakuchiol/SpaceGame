@@ -94,8 +94,8 @@ const thirdText = document.querySelector('.dialogue3')
 // on screen load - text animation
 // stackoverflow
 document.addEventListener("DOMContentLoaded", ()=> {
-    startText.textContent = "Press Start to Play"
-    secondText.textContent = "Aliens are incoming."
+    startText.textContent = "Press Start to Play."
+    secondText.textContent = "Enemy ships incoming..."
     thirdText.textContent = "Will you be able to defeat them?"
 })
 
@@ -248,10 +248,18 @@ const fight = () => {
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
             //add to window -- virus pop up animation
+            /** TEST DELAY RELOAD **/
+            delayReload(2000);
+            /** TEST DELAY RELOAD **/
+            
         }
     } else {
         console.log("LOSE");
         //add to window -- virus pop up animation
+        /** TEST DELAY RELOAD **/
+        delayReload(2000);
+        /** TEST DELAY RELOAD **/
+
     }
     alert("Play again?")
     //automatically reloads page
@@ -264,6 +272,10 @@ const fight = () => {
     //     // window.location.reload()
     // }
     /**** TEST ****/
+    /** TEST DELAY RELOAD **/
+    delayReload(2000);
+    /** TEST DELAY RELOAD **/
+
 }
 
 
