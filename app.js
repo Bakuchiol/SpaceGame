@@ -72,28 +72,27 @@ const alien6 = new AlienShip("The Arwing")
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
 /************************** VARIABLES */
-// top screen
-// const playerHealth = document.querySelector('.playerHealth');
-// const roundCount = document.querySelector('.roundCount');
-// const alienHealth = document.querySelector('.alienHealth');
+// mainScreen
+const background = document.querySelector('.background');
+const enemyHealthBar = document.querySelector('.alienHealthBar');
+const enemyName = document.querySelector('.alienName');
+const enemyHealth = document.querySelector('.alienHealth');
 
-// main screen
-const startTitle = document.querySelector('.startTitle');
-const playerShip = document.querySelector('.playerShip');
-const alienShip = document.querySelector('.alienShip');
+const enemyShip = document.querySelector('.enemyShip');
+const enemyShipPic = document.querySelector('.alienShip')
 
-// footer
-const start = document.querySelector('.start');
-const attack = document.querySelector('.attack');
-const retreat = document.querySelector('.retreat');
+const startScreen = document.querySelector('.startScreen');
+const startButton = document.querySelector('#startGame');
 
+const attackButton = document.querySelector('.start')
 // /************************************************************************ FUNCTIONS */
 // // start, health appears, alien ship appears
 
-const shipsAppear = () => {
-    playerShip.classList.toggle('ussAssembly')
-    alienShip.classList.toggle('ussAlien')
-    startTitle.classList.toggle('pressStartGone')
+const start = () => {
+    startScreen.style.display = "none"
+    startButton.style.display = "none"
+    background.style.display = "block"
+    attackButton.style.display = "block"
 }
 
 // /************************************************** ATTACK */
