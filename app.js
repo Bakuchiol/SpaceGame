@@ -107,6 +107,8 @@ const textIn = [
 const textInTime = {
     duration: 2000,
     iteration: 1,
+    // direction: normal,
+    // fillMode: both
 }
 // animation
 
@@ -221,8 +223,10 @@ const fight = () => {
 
     if (heroShip.hull > 0) {
         if (enemyAliens.length == 0) {
+            // setTimeout(console.log("WIIIIIIIIN")(location.reload(), 5000))
+            // add another button to restart?
+            // change background to win?
             console.log("WIIIIIIIIN");
-            setTimeout(console.log("WIIIIIIIIN")(location.reload(), 3000))
             //add to window - img properly loaded (game beginning sequence animation)
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
@@ -232,10 +236,17 @@ const fight = () => {
         console.log("LOSE");
         //add to window -- virus pop up animation
     }
-    // alert("Reload the page to play again.")
+    alert("Play again?")
     //automatically reloads page
     console.log('TESTING')
     // setTimeout(window.location.reload(), 3000)
+    /**** TEST ** delaying text shown in console**/
+    // const delayReload = (i) => console.log('TEST TEST TEST', i);
+    // for (let i = 0; i < 4; i++){
+    //     setTimeout(delayReload, 1000 * i, i)
+    //     // window.location.reload()
+    // }
+    /**** TEST ****/
 }
 
 
