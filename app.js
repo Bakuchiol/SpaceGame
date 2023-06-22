@@ -134,6 +134,20 @@ const start = () => {
 // //if alien survive, alien ship attacks again
 // //if alien ship destroyed, can ATTACK NEXT SHIP OR RETREAT
 
+
+/****DELAY*****/
+ /**** TEST ****/
+ const reloadPage = () => {
+    location.reload();
+}
+const  delayReload = (time) => {
+    window.setTimeout(reloadPage, time)
+}
+/**** TEST ****/
+
+
+
+
 //main game loop
 // want the game to run while hero ship not destroyed
 const fight = () => {
@@ -227,6 +241,9 @@ const fight = () => {
             // add another button to restart?
             // change background to win?
             console.log("WIIIIIIIIN");
+            /** TEST DELAY RELOAD **/
+            delayReload(5000);
+            /** TEST DELAY RELOAD **/
             //add to window - img properly loaded (game beginning sequence animation)
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
