@@ -150,7 +150,8 @@ const fight = () => {
         heroShip.attackEnemy(target);
         //write dialogue to appear on screen (text content on div?)
         //test
-        startText.innerHTML = `You attack ${target.name}, leaving them with ${target.hull}!`
+        // styling console
+        console.log('%c ENEMY HOSTILE: ' + enemyAliens[0].name,'font-size: 20px')
         //test
         console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
 
@@ -182,6 +183,10 @@ const fight = () => {
             } else {
                 //write dialogue to appear on screen (text content on div?)
                 target = enemyAliens[0]; // reassign (just in case) to next alien
+                //test
+                // styling console
+                console.log('%c ENEMY HOSTILE: ' + target.name,'font-size: 20px')
+                //test
                 console.log("Brace for impact; a new enemy arrives!")
             }
 
@@ -217,6 +222,7 @@ const fight = () => {
     if (heroShip.hull > 0) {
         if (enemyAliens.length == 0) {
             console.log("WIIIIIIIIN");
+            setTimeout(console.log("WIIIIIIIIN")(location.reload(), 3000))
             //add to window - img properly loaded (game beginning sequence animation)
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
@@ -228,7 +234,8 @@ const fight = () => {
     }
     // alert("Reload the page to play again.")
     //automatically reloads page
-    window.location.reload()
+    console.log('TESTING')
+    // setTimeout(window.location.reload(), 3000)
 }
 
 
