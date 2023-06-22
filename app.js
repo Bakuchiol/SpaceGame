@@ -87,7 +87,11 @@ const startButton = document.querySelector('#startGame');
 const attackButton = document.querySelector('.start')
 // /************************************************************************ FUNCTIONS */
 // on screen load - text animation
-// window.onload
+// stackoverflow
+document.addEventListener("DOMContentLoaded", ()=> {
+    const startText = document.querySelector('.dialogue')
+    startText.textContent = "StarShipssss loremsdjfjlsjflsflsdkjf"
+})
 
 // // start, health appears, alien ship appears
 
