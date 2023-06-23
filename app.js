@@ -190,6 +190,7 @@ const fight = () => {
     console.log('You attacked first!')
     // game mechanic [event flag] : tracks state of game (if started or not etc....)
     let gameEnd = false;
+    let round = false;
 
     while (gameEnd != true) {
     // PLAYER TURN
@@ -201,8 +202,11 @@ const fight = () => {
         heroShip.attackEnemy(target);
         //write dialogue to appear on screen (text content on div?)
         //test
-        // styling console
-        console.log('%c ENEMY HOSTILE: ' + enemyAliens[0].name,'font-size: 13px; font-weight: bold')
+        // if (round == false){
+        // // styling console
+        // console.log('%c ENEMY HOSTILE: ' + enemyAliens[0].name,'font-size: 13px; font-weight: bold')
+        // round = true;
+        // }
         //test
         console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
 
@@ -219,8 +223,17 @@ const fight = () => {
         //write dialogue to appear on screen (text content on div?)
         console.log(`Enemy is destroyed. Good Job!`)
         enemyAliens.shift();
+
+        // round counter
+        if (round == false && enemyAliens.length > 0){
+            // styling console
+            console.log('%c WARNING: Enemy approaching at full throttle.','font-size: 13px; font-weight: bold; color: red')
+            round = true;
+            }
+
+
+
         /** APPEND NEXT ALIEN SHIP IMG HERE **/
-        
         if (enemyAliens.length != 0) {
             //write dialogue to appear on screen (text content on div?)
             console.log("Another approaches. Choose to give retreat the OK, or cancel and fight onward.");
@@ -232,11 +245,12 @@ const fight = () => {
                 //write dialogue to appear on screen (text content on div?)
                 console.log("Sailing back to Earth...");
             } else {
+                round = false;
                 //write dialogue to appear on screen (text content on div?)
                 target = enemyAliens[0]; // reassign (just in case) to next alien
                 //test
                 // styling console
-                console.log('%c ENEMY HOSTILE: ' + target.name,'font-size: 13px')
+                // console.log('%c ENEMY HOSTILE: ' + target.name,'font-size: 13px')
                 //test
                 console.log("Brace for impact; a new enemy arrives!")
             }
