@@ -34,30 +34,19 @@ class SpaceShip {
 class PlayerShip extends SpaceShip {
     constructor(name, hull, firepower, accuracy){
         super(name, hull, firepower, accuracy)
-        this.name = name,
-        this.hull = hull,
-        this.firepower = firepower,
-        this.accuracy = accuracy
     }
 }
 
 
 // alien ships
 class AlienShip extends SpaceShip {
-    constructor(name, hull, firepower, accuracy, picture){
-        super(name, hull, firepower, accuracy)
-        this.name = name,
+    constructor(name){
+        super(name, alienRandomizer(3, 6), alienRandomizer(2, 4), alienAccuracy(.8, .6))
         // hull: 3 - 6
-        this.hull = alienRandomizer(3, 6),
         // firepower: 2 - 4
-        this.firepower = alienRandomizer(2, 4),
         // accuracy: .6 - .8
-        this.accuracy = alienAccuracy(.8, .6)
-        //picture
-        this.picture = picture
     }
 }
-// console.log(alienAccuracy(.8, .6))
 
 //create player and alien ships
 const heroShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
@@ -72,23 +61,14 @@ const alien6 = new PlayerShip("The Arwing", 30, 4, .6) // star fox
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
 
 /************************** VARIABLES */
-// mainScreen
 const background = document.querySelector('.background');
-const enemyHealthBar = document.querySelector('.alienHealthBar');
-const enemyName = document.querySelector('.alienName');
-const enemyHealth = document.querySelector('.alienHealth');
-
-const enemyShip = document.querySelector('.enemyShip');
-const enemyShipPic = document.querySelector('.alienShip')
-
 const startScreen = document.querySelector('.startScreen');
 const startButton = document.querySelector('#startGame');
-
 const attackButton = document.querySelector('.start')
-const textBox = document.querySelector('.dialogueBox')
 const startText = document.querySelector('.dialogue')
 const secondText = document.querySelector('.dialogue2');
 const thirdText = document.querySelector('.dialogue3')
+let restartButton = document.querySelector('.reStartButton')
 // /************************************************************************ FUNCTIONS */
 
 // on screen load - text animation
@@ -144,25 +124,9 @@ const start = () => {
 const  delayReload = (time) => {
     window.setTimeout(reloadPage, time)
 }
-/**** TEST ****/
-const victoryImg = {
-    pic: 'https://i.redd.it/pj8ehy5692z21.gif'
-}
 
-
-let restartButton = document.querySelector('.reStartButton')
-const reStart = () => {
-
-    // let victoryGif = document.createElement('img')
-    // let victoryContainer = document.createElement('div')
-    // let screen = document.querySelector('.startScreen')
-
-    // background.replaceChild()
-    // victoryContainer.setAttribute('class', 'victory')
-    // victoryGif.setAttribute('src', victoryImg.pic)
-    // victoryGif.setAttribute('class', 'alienShip')
-    // screen.append(victoryContainer)
-    // victoryContainer.append(victoryGif)
+/** VICTORY **/
+const victory = () => {
 
     const victoryGifContainer = document.querySelector('.victoryGifContainer')
 
@@ -183,8 +147,7 @@ const reStart = () => {
 
 
 
-
-//main game loop
+/** MAIN GAME LOOP **/
 // want the game to run while hero ship not destroyed
 const fight = () => {
     console.log('You attacked first!')
@@ -227,7 +190,7 @@ const fight = () => {
         // round counter
         if (round == false && enemyAliens.length > 0){
             // styling console
-            console.log('%c WARNING: Enemy approaching at full throttle.','font-size: 13px; font-weight: bold; color: red')
+            console.log('%c WARNING: Enemy approaching at full throttle.','font-size: 13px; font-weight: bold; color: rgb(181, 36, 36)')
             round = true;
             }
 
@@ -290,7 +253,7 @@ const fight = () => {
             // add another button to restart?
             // change background to win?
             console.log("%c You secured victory!", "font-size: 20px; font-weight: bold; color: lime");
-            reStart();
+            victory();
             /** TEST DELAY RELOAD **/
             // delayReload(5000);
             /** TEST DELAY RELOAD **/
@@ -308,7 +271,7 @@ const fight = () => {
             
         }
     } else {
-
+        /* LOSER SCREEN */
         let loserContainer = document.querySelector('.loserContainer')
 
         background.style.display = "none"
