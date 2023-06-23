@@ -185,6 +185,14 @@ img {
     border-radius: 10px 10px 0 0;
     display: none;
 }
+/* LOSE SCREEN */
+.loserContainer {
+    background-image: url('https://media.tenor.com/7P13IRNu0sAAAAAC/colony-gundam.gif');
+    height: 36.8vh;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    display: none;
+}
 .reStartButton {
     margin-top: 2px;
     width: 100%;

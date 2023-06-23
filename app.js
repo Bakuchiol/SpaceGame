@@ -66,7 +66,7 @@ const alien2 = new AlienShip("Ferronis") // xenoblade chronicles 3
 const alien3 = new AlienShip("Vic Viper") // gradius, nes
 const alien4 = new AlienShip("Bebop") // cowboy bebop
 const alien5 = new AlienShip("S.S. Dolphin II") // pikmin
-const alien6 = new AlienShip("The Arwing") // star fox
+const alien6 = new PlayerShip("The Arwing", 30, 4, .6) // star fox
 
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
@@ -303,15 +303,25 @@ const fight = () => {
             secondText.style.display = "none"
             thirdText.style.display = "none"
             /** TEST DELAY RELOAD **/
-            delayReload(7000);
+            delayReload(10000);
             /** TEST DELAY RELOAD **/
             
         }
     } else {
-        console.log("LOSE");
-        //add to window -- virus pop up animation
+
+        let loserContainer = document.querySelector('.loserContainer')
+
+        background.style.display = "none"
+        loserContainer.style.display = "block"
+        startText.animate(textIn, textInTime)
+        startText.textContent = "Earth is no more..."
+        secondText.style.display = "none"
+        thirdText.style.display = "none"
+        attackButton.style.display = "none"
+        restartButton.style.display ="block"
+        console.log("YOU LOSE");
         /** TEST DELAY RELOAD **/
-        delayReload(2000);
+        delayReload(10000);
         /** TEST DELAY RELOAD **/
 
     }
