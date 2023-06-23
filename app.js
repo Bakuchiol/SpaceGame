@@ -61,12 +61,12 @@ class AlienShip extends SpaceShip {
 
 //create player and alien ships
 const heroShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
-const alien1 = new AlienShip("The Hocotate Ship")
-const alien2 = new AlienShip("S.S. Dolphin")
-const alien3 = new AlienShip("S.S. Drake")
-const alien4 = new AlienShip("Research Pod")
-const alien5 = new AlienShip("S.S. Dolphin II")
-const alien6 = new AlienShip("The Arwing")
+const alien1 = new AlienShip("Magellan Kai") // gundam
+const alien2 = new AlienShip("Ferronis") // xenoblade chronicles 3
+const alien3 = new AlienShip("Vic Viper") // gradius, nes
+const alien4 = new AlienShip("Bebop") // cowboy bebop
+const alien5 = new AlienShip("S.S. Dolphin II") // pikmin
+const alien6 = new AlienShip("The Arwing") // star fox
 
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
@@ -92,7 +92,7 @@ const thirdText = document.querySelector('.dialogue3')
 // /************************************************************************ FUNCTIONS */
 
 // on screen load - text animation
-// stackoverflow
+// stackoverflow - want animation to run as soon as page loads
 document.addEventListener("DOMContentLoaded", ()=> {
     startText.textContent = "Press Start to Play."
     secondText.textContent = "Enemy ships incoming..."
@@ -125,6 +125,7 @@ const start = () => {
     secondText.textContent = "Defend your Empire!"
     thirdText.animate(textIn, textInTime)
     thirdText.textContent = "Console Wars Begins!"
+    console.log("%c SPACE BATTLE", "font-size: 40px; font-weight: bold; color: rgb(21, 70, 170);")
 }
 
 // /************************************************** ATTACK */
@@ -145,12 +146,34 @@ const  delayReload = (time) => {
 }
 /**** TEST ****/
 
+let restartButton = document.querySelector('.reStartButton')
+const reStart = () => {
+
+    let victoryGif = document.querySelector('.victory')
+    let screen = document.querySelector('.startScreen')
+
+
+    screen.append(victoryGif)
+    startText.animate(textIn, textInTime)
+    startText.textContent = "Congratulations 🏆"
+    secondText.style.display = "none"
+    thirdText.style.display = "none"
+    attackButton.style.display = "none"
+    restartButton.style.display ="block"
+
+
+    /** TEST DELAY RELOAD **/
+    // delayReload(5000);
+    /** TEST DELAY RELOAD **/
+}
+
 
 
 
 //main game loop
 // want the game to run while hero ship not destroyed
 const fight = () => {
+    console.log('You attacked first!')
     // game mechanic [event flag] : tracks state of game (if started or not etc....)
     let gameEnd = false;
 
@@ -161,13 +184,11 @@ const fight = () => {
 
     //check accuracy
     if (turbulence < heroShip.accuracy) {
-        const startText2 = document.querySelector('.dialogue2')
-        startText2.textContent = "In a galaxy, far far away..."
         heroShip.attackEnemy(target);
         //write dialogue to appear on screen (text content on div?)
         //test
         // styling console
-        console.log('%c ENEMY HOSTILE: ' + enemyAliens[0].name,'font-size: 20px')
+        console.log('%c ENEMY HOSTILE: ' + enemyAliens[0].name,'font-size: 13px; font-weight: bold')
         //test
         console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
 
@@ -192,7 +213,7 @@ const fight = () => {
 
             //need something to wait and listen
             // stackoverflow - checking how to pause in middle of executing code - made buttons null
-            if (confirm("Permission to retreat?")) { // fancy pop-up checks with its own buttons
+            if (confirm("Abort mission?")) { // fancy pop-up checks with its own buttons
                 gameEnd = true;
                 //write dialogue to appear on screen (text content on div?)
                 console.log("Sailing back to Earth...");
@@ -201,7 +222,7 @@ const fight = () => {
                 target = enemyAliens[0]; // reassign (just in case) to next alien
                 //test
                 // styling console
-                console.log('%c ENEMY HOSTILE: ' + target.name,'font-size: 20px')
+                console.log('%c ENEMY HOSTILE: ' + target.name,'font-size: 13px')
                 //test
                 console.log("Brace for impact; a new enemy arrives!")
             }
@@ -240,9 +261,9 @@ const fight = () => {
             // setTimeout(console.log("WIIIIIIIIN")(location.reload(), 5000))
             // add another button to restart?
             // change background to win?
-            console.log("WIIIIIIIIN");
+            console.log("%c You secured victory!", "font-size: 20px; font-weight: bold; color: lime");
             /** TEST DELAY RELOAD **/
-            delayReload(5000);
+            // delayReload(5000);
             /** TEST DELAY RELOAD **/
             //add to window - img properly loaded (game beginning sequence animation)
         } else {
@@ -261,20 +282,12 @@ const fight = () => {
         /** TEST DELAY RELOAD **/
 
     }
-    alert("Play again?")
+    /*************************** */
+    reStart();
+    /********************************* */
+    // alert("Play again?")
     //automatically reloads page
-    console.log('TESTING')
-    // setTimeout(window.location.reload(), 3000)
-    /**** TEST ** delaying text shown in console**/
-    // const delayReload = (i) => console.log('TEST TEST TEST', i);
-    // for (let i = 0; i < 4; i++){
-    //     setTimeout(delayReload, 1000 * i, i)
-    //     // window.location.reload()
-    // }
     /**** TEST ****/
-    /** TEST DELAY RELOAD **/
-    delayReload(2000);
-    /** TEST DELAY RELOAD **/
 
 }
 
