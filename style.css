@@ -193,6 +193,14 @@ img {
     border-radius: 10px 10px 0 0;
     display: none;
 }
+/* ABORT SCREEN */
+.abortContainer {
+    background-image: url('https://64.media.tumblr.com/f47615b396854b9a3e4612fb3fad9aee/tumblr_ndyksc3iyd1rjxyrgo8_400.gif');
+    height: 36.8vh;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    display: none;
+}
 .reStartButton {
     margin-top: 2px;
     width: 100%;

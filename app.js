@@ -52,11 +52,11 @@ const alien2 = new AlienShip("Ferronis") // xenoblade chronicles 3
 const alien3 = new AlienShip("Vic Viper") // gradius, nes
 const alien4 = new AlienShip("Bebop") // cowboy bebop
 const alien5 = new AlienShip("S.S. Dolphin II") // pikmin
-const alien6 = new PlayerShip("The Arwing", 10, 3, 6) // star fox
+const alien6 = new PlayerShip("The Arwing", 8, 2, 6) // star fox
 
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
-console.log(enemyAliens)
+// console.log(enemyAliens)
 /************************** VARIABLES */
 const background = document.querySelector('.background');
 const startScreen = document.querySelector('.startScreen');
@@ -107,7 +107,7 @@ const start = () => {
 
 /****DELAY*****/
  /**** TEST ****/
- const reloadPage = () => {
+const reloadPage = () => {
     location.reload();
 }
 const  delayReload = (time) => {
@@ -250,12 +250,19 @@ const fight = () => {
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
             //add to window -- virus pop up animation
+
+            let abortContainer = document.querySelector('.abortContainer')
+
+            background.style.display = "none"
+            abortContainer.style.display = "block"
             startText.animate(textIn,textInTime)
             startText.textContent = "💀 Earth is DOOOOOOOMED! 💀"
             secondText.style.display = "none"
             thirdText.style.display = "none"
+            attackButton.style.display = "none"
+            restartButton.style.display ="block"
             /** TEST DELAY RELOAD **/
-            delayReload(10000);
+            // delayReload(10000);
             /** TEST DELAY RELOAD **/
             
         }
