@@ -11,7 +11,7 @@ const alienRandomizer = (min, max) => {
 }
 /**********************random number for alien accuracy */
 const alienAccuracy = (min, max) => {
-    return (Math.random() * ((min - max))).toFixed(2) + min
+    return ((Math.random() * ((min - max)) + min) / 10).toFixed(2)
 }
 
 // try factory
@@ -26,8 +26,7 @@ class SpaceShip {
         if (Math.random() < this.accuracy){
             enemy.hull -= this.firepower
         }
-    }
-    
+    } 
 }
 
 // player ship
@@ -41,13 +40,12 @@ class PlayerShip extends SpaceShip {
 // alien ships
 class AlienShip extends SpaceShip {
     constructor(name){
-        super(name, alienRandomizer(3, 6), alienRandomizer(2, 4), alienAccuracy(.8, .6))
+        super(name, alienRandomizer(3, 6), alienRandomizer(2, 4), alienAccuracy(6, 8))
         // hull: 3 - 6
         // firepower: 2 - 4
         // accuracy: .6 - .8
     }
 }
-
 //create player and alien ships
 const heroShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
 const alien1 = new AlienShip("Magellan Kai") // gundam
@@ -59,7 +57,7 @@ const alien6 = new PlayerShip("The Arwing", 30, 4, .6) // star fox
 
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
-
+// console.log(enemyAliens)
 /************************** VARIABLES */
 const background = document.querySelector('.background');
 const startScreen = document.querySelector('.startScreen');
@@ -70,14 +68,6 @@ const secondText = document.querySelector('.dialogue2');
 const thirdText = document.querySelector('.dialogue3')
 let restartButton = document.querySelector('.reStartButton')
 // /************************************************************************ FUNCTIONS */
-
-// on screen load - text animation
-// stackoverflow - want animation to run as soon as page loads
-document.addEventListener("DOMContentLoaded", ()=> {
-    startText.textContent = "Press Start to Play."
-    secondText.textContent = "Enemy ships incoming..."
-    thirdText.textContent = "Will you be able to defeat them?"
-})
 
 // animation
 const textIn = [
@@ -150,7 +140,7 @@ const victory = () => {
 /** MAIN GAME LOOP **/
 // want the game to run while hero ship not destroyed
 const fight = () => {
-    console.log('You attacked first!')
+    console.log('%c WARNING: Enemy approaching at full throttle.','font-size: 13px; font-weight: bold; color: rgb(181, 36, 36)')
     // game mechanic [event flag] : tracks state of game (if started or not etc....)
     let gameEnd = false;
     let round = false;
