@@ -145,15 +145,29 @@ const  delayReload = (time) => {
     window.setTimeout(reloadPage, time)
 }
 /**** TEST ****/
+const victoryImg = {
+    pic: 'https://i.redd.it/pj8ehy5692z21.gif'
+}
+
 
 let restartButton = document.querySelector('.reStartButton')
 const reStart = () => {
 
-    let victoryGif = document.querySelector('.victory')
-    let screen = document.querySelector('.startScreen')
+    // let victoryGif = document.createElement('img')
+    // let victoryContainer = document.createElement('div')
+    // let screen = document.querySelector('.startScreen')
 
+    // background.replaceChild()
+    // victoryContainer.setAttribute('class', 'victory')
+    // victoryGif.setAttribute('src', victoryImg.pic)
+    // victoryGif.setAttribute('class', 'alienShip')
+    // screen.append(victoryContainer)
+    // victoryContainer.append(victoryGif)
 
-    screen.append(victoryGif)
+    const victoryGifContainer = document.querySelector('.victoryGifContainer')
+
+    background.style.display = "none"
+    victoryGifContainer.style.display = "block"
     startText.animate(textIn, textInTime)
     startText.textContent = "Congratulations 🏆"
     secondText.style.display = "none"
@@ -262,6 +276,7 @@ const fight = () => {
             // add another button to restart?
             // change background to win?
             console.log("%c You secured victory!", "font-size: 20px; font-weight: bold; color: lime");
+            reStart();
             /** TEST DELAY RELOAD **/
             // delayReload(5000);
             /** TEST DELAY RELOAD **/
@@ -269,8 +284,12 @@ const fight = () => {
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
             //add to window -- virus pop up animation
+            startText.animate(textIn,textInTime)
+            startText.textContent = "💀 Earth is DOOOOOOOMED! 💀"
+            secondText.style.display = "none"
+            thirdText.style.display = "none"
             /** TEST DELAY RELOAD **/
-            delayReload(2000);
+            delayReload(7000);
             /** TEST DELAY RELOAD **/
             
         }
@@ -283,7 +302,7 @@ const fight = () => {
 
     }
     /*************************** */
-    reStart();
+    // reStart();
     /********************************* */
     // alert("Play again?")
     //automatically reloads page
