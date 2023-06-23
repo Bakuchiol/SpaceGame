@@ -6,12 +6,11 @@
 
 /**********************random number for alien powweerrr */
 const alienRandomizer = (min, max) => {
-    let randomNumber = Math.floor(Math.random() * (min - max)) + min
-    return randomNumber
-}
-/**********************random number for alien accuracy */
-const alienAccuracy = (min, max) => {
-    return ((Math.random() * ((min - max)) + min) / 10).toFixed(2)
+    // let randomNumber = Math.floor(Math.random() * (min - max)) + min
+    // return randomNumber
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 // try factory
@@ -40,24 +39,24 @@ class PlayerShip extends SpaceShip {
 // alien ships
 class AlienShip extends SpaceShip {
     constructor(name){
-        super(name, alienRandomizer(3, 6), alienRandomizer(2, 4), alienAccuracy(6, 8))
+        super(name, alienRandomizer(3, 6), alienRandomizer(2, 4), alienRandomizer(6, 8))
         // hull: 3 - 6
         // firepower: 2 - 4
         // accuracy: .6 - .8
     }
 }
 //create player and alien ships
-const heroShip = new PlayerShip("USS ASSEMBLY", 20, 5, .7)
+const heroShip = new PlayerShip("USS ASSEMBLY", 20, 5, 7)
 const alien1 = new AlienShip("Magellan Kai") // gundam
 const alien2 = new AlienShip("Ferronis") // xenoblade chronicles 3
 const alien3 = new AlienShip("Vic Viper") // gradius, nes
 const alien4 = new AlienShip("Bebop") // cowboy bebop
 const alien5 = new AlienShip("S.S. Dolphin II") // pikmin
-const alien6 = new PlayerShip("The Arwing", 30, 4, .6) // star fox
+const alien6 = new PlayerShip("The Arwing", 10, 3, 6) // star fox
 
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
-// console.log(enemyAliens)
+console.log(enemyAliens)
 /************************** VARIABLES */
 const background = document.querySelector('.background');
 const startScreen = document.querySelector('.startScreen');
