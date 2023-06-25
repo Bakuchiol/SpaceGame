@@ -4,7 +4,7 @@
 // firepower - amount of damage done to hull
 // accuracy - chance between 0 -1 [math.random]
 
-/**********************random number for alien powweerrr */
+/**********************random number for alien power */
 const alienRandomizer = (min, max) => {
     // let randomNumber = Math.floor(Math.random() * (min - max)) + min
     // return randomNumber
@@ -13,7 +13,7 @@ const alienRandomizer = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-// try factory
+// factory
 class SpaceShip {
     constructor(name, hull, firepower, accuracy){
         this.name = name,
@@ -56,7 +56,7 @@ const alien6 = new PlayerShip("The Arwing", 8, 2, 6) // star fox
 
 // alien array - easier iteration
 const enemyAliens = [alien1, alien2, alien3, alien4, alien5, alien6]
-// console.log(enemyAliens)
+
 /************************** VARIABLES */
 const background = document.querySelector('.background');
 const startScreen = document.querySelector('.startScreen');
@@ -76,11 +76,8 @@ const textIn = [
 const textInTime = {
     duration: 2000,
     iteration: 1,
-    // direction: normal,
-    // fillMode: both
 }
 // animation
-
 
 // // start, health appears, alien ship appears
 const start = () => {
@@ -106,7 +103,7 @@ const start = () => {
 
 
 /****DELAY*****/
- /**** TEST ****/
+ /**** TEST -- stackoverflow ****/
 const reloadPage = () => {
     location.reload();
 }
@@ -114,9 +111,8 @@ const  delayReload = (time) => {
     window.setTimeout(reloadPage, time)
 }
 
-/** VICTORY **/
+/** VICTORY SCREEN**/
 const victory = () => {
-
     const victoryGifContainer = document.querySelector('.victoryGifContainer')
 
     background.style.display = "none"
@@ -127,11 +123,6 @@ const victory = () => {
     thirdText.style.display = "none"
     attackButton.style.display = "none"
     restartButton.style.display ="block"
-
-
-    /** TEST DELAY RELOAD **/
-    // delayReload(5000);
-    /** TEST DELAY RELOAD **/
 }
 
 
@@ -152,14 +143,6 @@ const fight = () => {
     //check accuracy
     if (turbulence < heroShip.accuracy) {
         heroShip.attackEnemy(target);
-        //write dialogue to appear on screen (text content on div?)
-        //test
-        // if (round == false){
-        // // styling console
-        // console.log('%c ENEMY HOSTILE: ' + enemyAliens[0].name,'font-size: 13px; font-weight: bold')
-        // round = true;
-        // }
-        //test
         console.log(`You attack ${target.name}, leaving them with ${target.hull}!`);
 
     } else {
@@ -172,8 +155,9 @@ const fight = () => {
     if (target.hull <= 0) {
         //since it goes to negative, reassigns alien haul to 0
         target.hull = 0;
-        //write dialogue to appear on screen (text content on div?)
+
         console.log(`Enemy is destroyed. Good Job!`)
+        // moves on to next enemy
         enemyAliens.shift();
 
         // round counter
@@ -184,10 +168,7 @@ const fight = () => {
             }
 
 
-
-        /** APPEND NEXT ALIEN SHIP IMG HERE **/
         if (enemyAliens.length != 0) {
-            //write dialogue to appear on screen (text content on div?)
             console.log("Another approaches. Choose to give retreat the OK, or cancel and fight onward.");
 
             //need something to wait and listen
@@ -198,12 +179,7 @@ const fight = () => {
                 console.log("Sailing back to Earth...");
             } else {
                 round = false;
-                //write dialogue to appear on screen (text content on div?)
                 target = enemyAliens[0]; // reassign (just in case) to next alien
-                //test
-                // styling console
-                // console.log('%c ENEMY HOSTILE: ' + target.name,'font-size: 13px')
-                //test
                 console.log("Brace for impact; a new enemy arrives!")
             }
 
@@ -220,13 +196,11 @@ const fight = () => {
         if (target.accuracy > turbulence) {
             // if the game is not about to end, alien turn; they attack
             target.attackEnemy(heroShip);
-            //write dialogue to appear on screen (text content on div?)
             console.log(`${target.name} attacks, leaving your hull at ${heroShip.hull}.`)
             // before everything else, they check if you are dead
             if (heroShip.hull <= 0) {
                 heroShip.hull = 0;
                 gameEnd = true;
-                //write dialogue to appear on screen (text content on div?)
                 console.log("It seems you are about to explode.")
             }
         } else {
@@ -238,19 +212,11 @@ const fight = () => {
 
     if (heroShip.hull > 0) {
         if (enemyAliens.length == 0) {
-            // setTimeout(console.log("WIIIIIIIIN")(location.reload(), 5000))
-            // add another button to restart?
-            // change background to win?
             console.log("%c You secured victory!", "font-size: 20px; font-weight: bold; color: lime");
             victory();
-            /** TEST DELAY RELOAD **/
-            // delayReload(5000);
-            /** TEST DELAY RELOAD **/
-            //add to window - img properly loaded (game beginning sequence animation)
         } else {
             console.log(`Wait, you missed ${enemyAliens.length} hostiles! Go ba- *BOOM*`);
-            //add to window -- virus pop up animation
-
+            // abort mission screen
             let abortContainer = document.querySelector('.abortContainer')
 
             background.style.display = "none"
@@ -260,11 +226,7 @@ const fight = () => {
             secondText.style.display = "none"
             thirdText.style.display = "none"
             attackButton.style.display = "none"
-            restartButton.style.display ="block"
-            /** TEST DELAY RELOAD **/
-            // delayReload(10000);
-            /** TEST DELAY RELOAD **/
-            
+            restartButton.style.display ="block"            
         }
     } else {
         /* LOSER SCREEN */
@@ -279,21 +241,5 @@ const fight = () => {
         attackButton.style.display = "none"
         restartButton.style.display ="block"
         console.log("YOU LOSE");
-        /** TEST DELAY RELOAD **/
-        delayReload(10000);
-        /** TEST DELAY RELOAD **/
-
     }
-    /*************************** */
-    // reStart();
-    /********************************* */
-    // alert("Play again?")
-    //automatically reloads page
-    /**** TEST ****/
-
 }
-
-
-// appear in document:
-/* trying to load... -- @delay page loading animation-- prompt user to defeat console aliens */
-/* DELETE EXTRA BUTTONS -  */
